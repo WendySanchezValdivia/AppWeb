@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsualización de PDF</title>
+</head>
+<body>
+
+<button onclick="previsualizarPDF('pdf/Actividad1.pdf')">PDF Actividad 1</button>
+<button onclick="previsualizarPDF('ruta/al/archivo2.pdf')">Previsualizar PDF 2</button>
+<!-- Puedes agregar más botones según sea necesario -->
+
+<div id="visorPDF"></div>
+
+<script>
+    function previsualizarPDF(rutaPDF) {
+        // Obtén el contenedor del visor de PDF
+        var visorPDF = document.getElementById('visorPDF');
+
+        // Crea un elemento iframe
+        var iframe = document.createElement('iframe');
+        
+        // Establece la ruta del PDF como fuente del iframe
+        iframe.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(rutaPDF) + '&embedded=true';
+        
+        // Establece el ancho y alto del iframe
+        iframe.style.width = '100%';
+        iframe.style.height = '500px'; // Puedes ajustar la altura según tus necesidades
+        
+        // Limpia el contenido existente en el contenedor
+        visorPDF.innerHTML = '';
+        
+        // Agrega el iframe al contenedor
+        visorPDF.appendChild(iframe);
+    }
+</script>
+
+</body>
+</html>
